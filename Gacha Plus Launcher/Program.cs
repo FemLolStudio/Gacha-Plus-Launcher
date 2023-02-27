@@ -17,6 +17,9 @@ namespace Gacha_Plus_Launcher
             //sometimes need because some system don't recognize the free Let's Encrypt SSL certificate
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
