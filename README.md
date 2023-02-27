@@ -9,7 +9,7 @@
 -   [.NET Framework 4.8 (Click here to download)](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48)
 
 ## Download
--   [Click here to download in .exe format]()
+-   [Click here to download in .exe format](https://github.com/FemLol2003/Gacha-Plus-Launcher/releases/download/Release/GachaPlusLauncher.exe)
 
 ## License
 -   [MIT License](LICENSE)
