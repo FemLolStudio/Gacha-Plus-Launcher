@@ -163,6 +163,13 @@ namespace Gacha_Plus_Launcher
 
         #region UIControll
         /// <summary>
+        /// Exit button Click event
+        /// </summary>
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        /// <summary>
         /// Start button Click event
         /// </summary>
         private async void start_button_Click(object sender, EventArgs e)
@@ -256,11 +263,6 @@ namespace Gacha_Plus_Launcher
                 this.Top += e.Y - lastPoint.Y;
             }
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

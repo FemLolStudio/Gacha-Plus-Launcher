@@ -33,7 +33,7 @@
             this.download_progressBar = new System.Windows.Forms.ProgressBar();
             this.download_label = new System.Windows.Forms.Label();
             this.DragPanel = new System.Windows.Forms.Panel();
-            this.Exit = new System.Windows.Forms.Button();
+            this.exit_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // start_button
@@ -78,24 +78,24 @@
             this.DragPanel.BackColor = System.Drawing.Color.Transparent;
             this.DragPanel.Location = new System.Drawing.Point(-2, -2);
             this.DragPanel.Name = "DragPanel";
-            this.DragPanel.Size = new System.Drawing.Size(837, 56);
+            this.DragPanel.Size = new System.Drawing.Size(837, 465);
             this.DragPanel.TabIndex = 3;
             this.DragPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragPanel_MouseDown);
             this.DragPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DragPanel_MouseMove);
             // 
-            // Exit
+            // exit_button
             // 
-            this.Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(0)))), ((int)(((byte)(224)))));
-            this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Exit.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
-            this.Exit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Exit.Location = new System.Drawing.Point(24, 399);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(149, 55);
-            this.Exit.TabIndex = 4;
-            this.Exit.Text = "Exit";
-            this.Exit.UseVisualStyleBackColor = false;
-            this.Exit.Click += new System.EventHandler(this.button1_Click);
+            this.exit_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(0)))), ((int)(((byte)(224)))));
+            this.exit_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.exit_button.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
+            this.exit_button.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.exit_button.Location = new System.Drawing.Point(24, 399);
+            this.exit_button.Name = "exit_button";
+            this.exit_button.Size = new System.Drawing.Size(149, 55);
+            this.exit_button.TabIndex = 4;
+            this.exit_button.Text = "Exit";
+            this.exit_button.UseVisualStyleBackColor = false;
+            this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
             // 
             // GachaPlusForm
             // 
@@ -104,14 +104,15 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(834, 461);
-            this.Controls.Add(this.Exit);
-            this.Controls.Add(this.DragPanel);
+            this.Controls.Add(this.exit_button);
             this.Controls.Add(this.download_label);
             this.Controls.Add(this.download_progressBar);
             this.Controls.Add(this.start_button);
+            this.Controls.Add(this.DragPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GachaPlusForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gacha Plus Launcher";
             this.ResumeLayout(false);
 
@@ -123,7 +124,7 @@
         private System.Windows.Forms.ProgressBar download_progressBar;
         private System.Windows.Forms.Label download_label;
         private System.Windows.Forms.Panel DragPanel;
-        private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.Button exit_button;
     }
 }
 

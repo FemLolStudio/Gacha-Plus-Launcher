@@ -91,7 +91,7 @@ namespace Gacha_Plus_Launcher
         /// </summary>
         public static void CustomMessageBoxShow(string message)
         {
-            MessageBox.Show(message, "Gacha Plus Luancher");
+            MessageBox.Show(message, "Gacha Plus Launcher");
         }
         /// <summary>
         /// Extract files one by one, need because the longer than 260 character paths
