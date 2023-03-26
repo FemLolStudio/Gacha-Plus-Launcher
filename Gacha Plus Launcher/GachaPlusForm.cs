@@ -43,7 +43,7 @@ namespace Gacha_Plus_Launcher
             InitializeComponent();
             DownloadingEndUI();
         }
-
+        Point lastPoint;
         #region Update And Launch
         /// <summary>
         /// Checking updates and after it update or starting up 
@@ -242,5 +242,25 @@ namespace Gacha_Plus_Launcher
             }
         }
         #endregion
+
+        private void DragPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void DragPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
