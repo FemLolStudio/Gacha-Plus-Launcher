@@ -4,7 +4,7 @@
 
 # Gacha Plus Launcher
 
-Gacha Plus Launcher is an open-source launcher for Gacha Plus. The launcher is built in C# and Open-Source.
+Gacha Plus Launcher is an open-source launcher for Gacha Plus. The launcher is built in C# and Is Open-Source.
 
 
 ## Requirements
