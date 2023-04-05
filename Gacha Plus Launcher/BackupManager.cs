@@ -62,7 +62,7 @@ namespace Gacha_Plus_Launcher
             if(backups.Count == 0)
                 return false;
 
-            var path = backups.OrderByDescending(x => x.Name).FirstOrDefault().FullName;
+            var path = backups.OrderByDescending(x => x.CreationTime).FirstOrDefault().FullName;
 
             if (!Directory.Exists(gameSavePath))
                 Directory.CreateDirectory(gameSavePath);
