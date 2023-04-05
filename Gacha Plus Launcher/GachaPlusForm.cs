@@ -147,6 +147,8 @@ namespace Gacha_Plus_Launcher
         /// </summary>
         private void LaunchApp()
         {
+            ProgressChange($"Making backup...", 100);
+            BackupManager.CreateBackup();
             ProgressChange($"Launching app...", 100);
             try
             {
@@ -158,6 +160,14 @@ namespace Gacha_Plus_Launcher
                 OtherFunctions.CustomMessageBoxShow($"Failed to start: {ex.Message}");
                 DownloadingEndUI();
             }
+        }
+        /// <summary>
+        /// Opening settings
+        /// </summary>
+        private void settings_button_Click(object sender, EventArgs e)
+        {
+            var ff = new SettingsForm();
+            ff.ShowDialog();
         }
         #endregion
 
@@ -262,12 +272,5 @@ namespace Gacha_Plus_Launcher
             }
         }
         #endregion
-
-
-        private void settings_button_Click(object sender, EventArgs e)
-        {
-            var ff = new SettingsForm();
-            ff.ShowDialog();
-        }
     }
 }
