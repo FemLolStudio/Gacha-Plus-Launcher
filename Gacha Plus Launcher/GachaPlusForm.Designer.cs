@@ -34,6 +34,8 @@
             this.download_label = new System.Windows.Forms.Label();
             this.DragPanel = new System.Windows.Forms.Panel();
             this.exit_button = new System.Windows.Forms.Button();
+            this.settings_button = new System.Windows.Forms.Button();
+            this.DragPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // start_button
@@ -76,6 +78,8 @@
             // DragPanel
             // 
             this.DragPanel.BackColor = System.Drawing.Color.Transparent;
+            this.DragPanel.Controls.Add(this.exit_button);
+            this.DragPanel.Controls.Add(this.settings_button);
             this.DragPanel.Location = new System.Drawing.Point(-2, -2);
             this.DragPanel.Name = "DragPanel";
             this.DragPanel.Size = new System.Drawing.Size(837, 465);
@@ -89,13 +93,27 @@
             this.exit_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.exit_button.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
             this.exit_button.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.exit_button.Location = new System.Drawing.Point(24, 399);
+            this.exit_button.Location = new System.Drawing.Point(14, 396);
             this.exit_button.Name = "exit_button";
             this.exit_button.Size = new System.Drawing.Size(149, 55);
             this.exit_button.TabIndex = 4;
             this.exit_button.Text = "Exit";
             this.exit_button.UseVisualStyleBackColor = false;
             this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
+            // 
+            // settings_button
+            // 
+            this.settings_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(0)))), ((int)(((byte)(224)))));
+            this.settings_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.settings_button.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
+            this.settings_button.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.settings_button.Location = new System.Drawing.Point(169, 396);
+            this.settings_button.Name = "settings_button";
+            this.settings_button.Size = new System.Drawing.Size(149, 55);
+            this.settings_button.TabIndex = 5;
+            this.settings_button.Text = "Settings";
+            this.settings_button.UseVisualStyleBackColor = false;
+            this.settings_button.Click += new System.EventHandler(this.settings_button_Click);
             // 
             // GachaPlusForm
             // 
@@ -104,7 +122,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(834, 461);
-            this.Controls.Add(this.exit_button);
             this.Controls.Add(this.download_label);
             this.Controls.Add(this.download_progressBar);
             this.Controls.Add(this.start_button);
@@ -114,6 +131,7 @@
             this.Name = "GachaPlusForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gacha Plus Launcher";
+            this.DragPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -125,6 +143,7 @@
         private System.Windows.Forms.Label download_label;
         private System.Windows.Forms.Panel DragPanel;
         private System.Windows.Forms.Button exit_button;
+        private System.Windows.Forms.Button settings_button;
     }
 }
 

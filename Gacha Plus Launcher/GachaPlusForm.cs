@@ -219,6 +219,20 @@ namespace Gacha_Plus_Launcher
             download_progressBar.Invoke(new Action(() => download_progressBar.Value = percent));
             download_label.Invoke(new Action(() => download_label.Text = text));
         }
+        private void DragPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void DragPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+
+        }
         #endregion
 
         #region HTTP scripts
@@ -250,19 +264,11 @@ namespace Gacha_Plus_Launcher
         }
         #endregion
 
-        private void DragPanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            lastPoint = new Point(e.X, e.Y);
-        }
 
-        private void DragPanel_MouseMove(object sender, MouseEventArgs e)
+        private void settings_button_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Left += e.X - lastPoint.X;
-                this.Top += e.Y - lastPoint.Y;
-            }
-
+            var ff = new SettingsForm();
+            ff.ShowDialog();
         }
     }
 }
