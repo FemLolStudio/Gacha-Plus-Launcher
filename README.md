@@ -1,15 +1,30 @@
-![Teszt](Gacha%20Plus%20Launcher/Resources/background.png)
+
+![Logo](Gacha%20Plus%20Launcher/Resources/background.png)
+
+
 # Gacha Plus Launcher
-***
-## Introduction
--   An open source launcher for Gacha Plus in C#.
+
+Gacha Plus Launcher is an open-source launcher for Gacha Plus. The launcher is built in C# and Is Open-Source.
+
 
 ## Requirements
--   Winsows 7/8/10/11
--   [.NET Framework 4.8 (Click here to download)](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48)
+
+To use Gacha Plus Launcher, you'll need:
+
+ * Windows 7 - 11
+* [.NET Framework 4.8 (Click here to download)](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48)
+
 
 ## Download
--   [Click here to download in .exe format](https://github.com/FemLol2003/Gacha-Plus-Launcher/releases/download/Release/GachaPlusLauncher.exe)
 
+You can download Gacha Plus Launcher in .exe format from the link below.
+
+https://github.com/FemLol2003/Gacha-Plus-Launcher/releases/tag/Release
+
+## Getting Started
+
+To get started with Gacha Plus Launcher, simply download and install the launcher using the steps above. Once installed, launch the application and click the start button to install Gacha Plus.
 ## License
--   [MIT License](LICENSE)
+
+Gacha Plus Launcher is licensed under the
+[MIT License](LICENSE). You're free to use, modify, and distribute the code as you see fit.
