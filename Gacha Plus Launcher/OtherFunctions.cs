@@ -1,5 +1,4 @@
-﻿using Security;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -55,23 +54,6 @@ namespace Gacha_Plus_Launcher
             return one != null
                 && two != null
                 && one.Trim().ToUpper().SequenceEqual(two.Trim().ToUpper());
-        }
-        /// <summary>
-        /// Sending some anonymous usage data
-        /// </summary>
-        public static async Task SendStatistic()
-        {
-            try
-            {
-                Dictionary<string, string> datas = new Dictionary<string, string>
-                {
-                    { "id", ThumbPrint.Value() }
-                };
-
-                await PostFormData("https://gacha-plus.com/GPscripts/app_stat.php", datas);
-            }
-            catch (Exception)
-            { }
         }
         /// <summary>
         /// Doing post request

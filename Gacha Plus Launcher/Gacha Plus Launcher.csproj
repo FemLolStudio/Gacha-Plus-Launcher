@@ -91,7 +91,6 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThumbPrint.cs" />
     <EmbeddedResource Include="GachaPlusForm.resx">
       <DependentUpon>GachaPlusForm.cs</DependentUpon>
     </EmbeddedResource>

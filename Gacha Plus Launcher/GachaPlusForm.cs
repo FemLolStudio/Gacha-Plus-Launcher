@@ -177,7 +177,6 @@ namespace Gacha_Plus_Launcher
             if (!downloading)
             {
                 DownloadingStartUI();
-                await OtherFunctions.SendStatistic();
                 await CheckForUpdatesAndStartAsync();
             }
         }
