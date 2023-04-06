@@ -20,9 +20,31 @@ namespace Gacha_Plus_Launcher
         private const string ExeName = @"gacha_plus.app\Gacha Plus.exe";
 
         //  The \\?\ Need to manage longer than 260 character paths.
-        private string ExtractedDirName = Path.Combine(@"\\?\" + Application.LocalUserAppDataPath, "App");
+        public static string ExtractedDirName
+        {
+            get
+            {
+                string pth = Application.LocalUserAppDataPath;
+                if(File.Exists(pathPath))
+                    pth = File.ReadAllText(pathPath);
+
+                return Path.Combine(@"\\?\" + pth, "App");
+            }
+        }
+        public static string DownloadZipName
+        {
+            get
+            {
+                string pth = Application.LocalUserAppDataPath;
+                if (File.Exists(pathPath))
+                    pth = File.ReadAllText(pathPath);
+
+                return Path.Combine(@"\\?\" + pth, "download.zip");
+            }
+        }
+
         private string VersionPath = Path.Combine(@"\\?\" + Application.LocalUserAppDataPath, "version.txt");
-        private string DownloadZipName = Path.Combine(@"\\?\" + Application.LocalUserAppDataPath, "download.zip");
+        public static string pathPath = Path.Combine(@"\\?\" + Application.LocalUserAppDataPath, "path.txt");
 
         private string LatestChecksum = "-";
         private string LatestVersion = "0.0.0";
@@ -48,7 +70,7 @@ namespace Gacha_Plus_Launcher
         /// <summary>
         /// Checking updates and after it update or starting up 
         /// </summary>
-        private async Task CheckForUpdatesAndStartAsync(bool startiferror = true)
+        private async Task CheckForUpdatesAndStartAsync()
         {
             try
             {
@@ -121,7 +143,7 @@ namespace Gacha_Plus_Launcher
 
                 // Extract the new version
                 ProgressChange($"Extracting zip...", 100);
-                OtherFunctions.ExtractFilesOneByOne(DownloadZipName, ExtractedDirName);
+                await OtherFunctions.ExtractFilesOneByOne(DownloadZipName, ExtractedDirName);
 
 
                 // Delete the downloaded zip file
@@ -158,6 +180,10 @@ namespace Gacha_Plus_Launcher
             catch (Exception ex)
             {
                 OtherFunctions.CustomMessageBoxShow($"Failed to start: {ex.Message}");
+
+                // if something wrong its remove the wrong files and the launcher will reinstall the game on the next startup
+                OtherFunctions.DeleteDirectory(ExtractedDirName); 
+
                 DownloadingEndUI();
             }
         }
@@ -225,7 +251,7 @@ namespace Gacha_Plus_Launcher
         /// </summary>
         private void ProgressChange(string text, int percent)
         {
-            download_progressBar.Invoke(new Action(() => download_progressBar.Value = percent));
+            download_progressBar.Invoke(new Action(() => { download_progressBar.Value = percent; download_progressBar.Refresh(); }));
             download_label.Invoke(new Action(() => download_label.Text = text));
         }
         private void DragPanel_MouseDown(object sender, MouseEventArgs e)

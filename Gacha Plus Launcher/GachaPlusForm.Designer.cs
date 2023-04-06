@@ -60,6 +60,7 @@
             this.download_progressBar.Name = "download_progressBar";
             this.download_progressBar.Size = new System.Drawing.Size(400, 23);
             this.download_progressBar.Step = 1;
+            this.download_progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.download_progressBar.TabIndex = 1;
             // 
             // download_label

@@ -78,7 +78,7 @@ namespace Gacha_Plus_Launcher
         /// <summary>
         /// Extract files one by one, need because the longer than 260 character paths
         /// </summary>
-        public static void ExtractFilesOneByOne(string DownloadZipName, string ExtractedDirName)
+        public static async Task ExtractFilesOneByOne(string DownloadZipName, string ExtractedDirName)
         {
             using (var archive = ZipFile.Open(DownloadZipName, ZipArchiveMode.Read))
             {
@@ -98,7 +98,7 @@ namespace Gacha_Plus_Launcher
                     else
                     {
                         // If the entry is a file, extract it to the specified path
-                        entry.ExtractToFile(pth, true);
+                        await Task.Run(() => entry.ExtractToFile(pth, true));
                     }
                 }
             }

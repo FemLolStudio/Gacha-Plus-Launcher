@@ -79,5 +79,19 @@ namespace Gacha_Plus_Launcher
 
             return true;
         }
+        public static bool DeleteActiveSavedDatas()
+        {
+            string destinationPath = Path.Combine(gameSavePath, "gachaclub_save.sol");
+
+            if (File.Exists(destinationPath))
+            {
+                OtherFunctions.DeleteFile(destinationPath);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
