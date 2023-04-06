@@ -6,6 +6,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,6 +45,7 @@ namespace Gacha_Plus_Launcher
         }
 
         private string VersionPath = Path.Combine(@"\\?\" + Application.LocalUserAppDataPath, "version.txt");
+        private string fullscreenPath = Path.Combine(@"\\?\" + Application.LocalUserAppDataPath, "fullscreen.txt");
         public static string pathPath = Path.Combine(@"\\?\" + Application.LocalUserAppDataPath, "path.txt");
 
         private string LatestChecksum = "-";
@@ -164,17 +166,39 @@ namespace Gacha_Plus_Launcher
                 DownloadingEndUI();
             }
         }
+
         /// <summary>
         /// Launching App
         /// </summary>
-        private void LaunchApp()
+        private async Task LaunchApp()
         {
             ProgressChange($"Making backup...", 100);
-            BackupManager.CreateBackup();
+            await BackupManager.CreateBackupAsync();
             ProgressChange($"Launching app...", 100);
             try
             {
-                Process.Start(Path.Combine(ExtractedDirName, ExeName));
+                await Task.Run(() =>
+                {
+                    Process process = Process.Start(Path.Combine(ExtractedDirName, ExeName));
+
+                    if (fullscreen_checkBox.Checked)
+                    {
+                        // set window to full screen
+                        process.WaitForInputIdle(); // wait for process to be fully loaded
+                        IntPtr handle = process.MainWindowHandle; // get the window handle
+                        NativeMethods.ShowWindow(handle, NativeMethods.SW_MAXIMIZE); // maximize the window
+                        NativeMethods.SetWindowLong(handle, NativeMethods.GWL_STYLE, NativeMethods.WS_VISIBLE | NativeMethods.WS_POPUP); // set the window style
+                        NativeMethods.SetWindowPos(handle, IntPtr.Zero, 0, 0, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, NativeMethods.SWP_NOZORDER); // set the window position
+                    }
+                    else
+                    {
+                        // maximize the window
+                        process.WaitForInputIdle(); // wait for process to be fully loaded
+                        IntPtr handle = process.MainWindowHandle; // get the window handle
+                        NativeMethods.ShowWindow(handle, NativeMethods.SW_MAXIMIZE); // maximize the window
+                    }
+                });
+
                 Application.Exit();
             }
             catch (Exception ex)
@@ -230,6 +254,7 @@ namespace Gacha_Plus_Launcher
             download_label.Text = string.Empty;
             download_progressBar.Show();
             download_progressBar.Value = 0;
+            fullscreen_checkBox.Hide();
         }
         /// <summary>
         /// Update the UI for ending the process
@@ -245,6 +270,9 @@ namespace Gacha_Plus_Launcher
             download_label.Text = string.Empty;
             download_progressBar.Hide();
             download_progressBar.Value = 0;
+            fullscreen_checkBox.Show();
+            if(File.Exists(fullscreenPath))
+                fullscreen_checkBox.Checked = File.ReadAllText(fullscreenPath) == "1";
         }
         /// <summary>
         /// Update the progressbar and the progress label
@@ -298,5 +326,10 @@ namespace Gacha_Plus_Launcher
             }
         }
         #endregion
+
+        private void fullscreen_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            File.WriteAllText(fullscreenPath, fullscreen_checkBox.Checked ? "1" : "0");
+        }
     }
 }

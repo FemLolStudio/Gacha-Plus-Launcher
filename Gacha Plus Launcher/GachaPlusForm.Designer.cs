@@ -35,6 +35,7 @@
             this.DragPanel = new System.Windows.Forms.Panel();
             this.exit_button = new System.Windows.Forms.Button();
             this.settings_button = new System.Windows.Forms.Button();
+            this.fullscreen_checkBox = new System.Windows.Forms.CheckBox();
             this.DragPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@
             this.download_progressBar.Step = 1;
             this.download_progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.download_progressBar.TabIndex = 1;
+            this.download_progressBar.Visible = false;
             // 
             // download_label
             // 
@@ -72,19 +74,20 @@
             this.download_label.Location = new System.Drawing.Point(419, 400);
             this.download_label.Name = "download_label";
             this.download_label.Size = new System.Drawing.Size(403, 23);
-            this.download_label.TabIndex = 2;
+            this.download_label.TabIndex = 3;
             this.download_label.Text = "download_label";
             this.download_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DragPanel
             // 
             this.DragPanel.BackColor = System.Drawing.Color.Transparent;
+            this.DragPanel.Controls.Add(this.fullscreen_checkBox);
             this.DragPanel.Controls.Add(this.exit_button);
             this.DragPanel.Controls.Add(this.settings_button);
-            this.DragPanel.Location = new System.Drawing.Point(-2, -2);
+            this.DragPanel.Location = new System.Drawing.Point(-3, -1);
             this.DragPanel.Name = "DragPanel";
             this.DragPanel.Size = new System.Drawing.Size(837, 465);
-            this.DragPanel.TabIndex = 3;
+            this.DragPanel.TabIndex = 999;
             this.DragPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragPanel_MouseDown);
             this.DragPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DragPanel_MouseMove);
             // 
@@ -97,7 +100,7 @@
             this.exit_button.Location = new System.Drawing.Point(14, 396);
             this.exit_button.Name = "exit_button";
             this.exit_button.Size = new System.Drawing.Size(149, 55);
-            this.exit_button.TabIndex = 4;
+            this.exit_button.TabIndex = 10;
             this.exit_button.Text = "Exit";
             this.exit_button.UseVisualStyleBackColor = false;
             this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
@@ -116,6 +119,20 @@
             this.settings_button.UseVisualStyleBackColor = false;
             this.settings_button.Click += new System.EventHandler(this.settings_button_Click);
             // 
+            // fullscreen_checkBox
+            // 
+            this.fullscreen_checkBox.AutoSize = true;
+            this.fullscreen_checkBox.BackColor = System.Drawing.Color.Transparent;
+            this.fullscreen_checkBox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.fullscreen_checkBox.ForeColor = System.Drawing.Color.White;
+            this.fullscreen_checkBox.Location = new System.Drawing.Point(560, 405);
+            this.fullscreen_checkBox.Name = "fullscreen_checkBox";
+            this.fullscreen_checkBox.Size = new System.Drawing.Size(127, 23);
+            this.fullscreen_checkBox.TabIndex = 2;
+            this.fullscreen_checkBox.Text = "Full screen";
+            this.fullscreen_checkBox.UseVisualStyleBackColor = false;
+            this.fullscreen_checkBox.CheckedChanged += new System.EventHandler(this.fullscreen_checkBox_CheckedChanged);
+            // 
             // GachaPlusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,6 +150,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gacha Plus Launcher";
             this.DragPanel.ResumeLayout(false);
+            this.DragPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -145,6 +163,7 @@
         private System.Windows.Forms.Panel DragPanel;
         private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.Button settings_button;
+        private System.Windows.Forms.CheckBox fullscreen_checkBox;
     }
 }
 

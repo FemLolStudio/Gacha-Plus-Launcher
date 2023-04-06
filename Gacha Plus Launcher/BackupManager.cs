@@ -14,6 +14,10 @@ namespace Gacha_Plus_Launcher
         private static string appDataRoaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         private static string gameSavePath = Path.Combine(appDataRoaming, "com.lunime.gachaclub", "Local Store", "#SharedObjects", "gacha_plus.swf");
 
+        public static async Task CreateBackupAsync()
+        {
+            await Task.Run(() => CreateBackup());
+        }
         public static void CreateBackup()
         {
             DateTime now = DateTime.Now;
@@ -31,6 +35,8 @@ namespace Gacha_Plus_Launcher
                 Directory.CreateDirectory(backupDirectory);
 
             File.Copy(sourcePath, destinationPath);
+            
+            DeleteMoreThan(25);
         }
         public static bool LoadBackup(string path)
         {
@@ -91,6 +97,17 @@ namespace Gacha_Plus_Launcher
             else
             {
                 return false;
+            }
+        }
+
+        public static void DeleteMoreThan(int num)
+        {
+            DirectoryInfo directory = new DirectoryInfo(backupDirectory);
+            var files = directory.GetFiles().ToList().OrderByDescending(x => x.CreationTime).ToArray();
+
+            for (int i = num; i < files.Length; i++)
+            {
+                files[i].Delete();
             }
         }
     }
