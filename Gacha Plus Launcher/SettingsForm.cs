@@ -43,7 +43,7 @@ namespace Gacha_Plus_Launcher
                 if (File.Exists(GachaPlusForm.pathPath))
                     OtherFunctions.DeleteDirectory(GachaPlusForm.pathPath);
 
-                OtherFunctions.DeleteDirectory(Application.LocalUserAppDataPath);
+                OtherFunctions.DeleteDirectory(OtherFunctions.LocalUserAppDataPathWithoutVersion());
 
                 OtherFunctions.CustomMessageBoxShow("All data deleted!");
                 this.Close();
@@ -79,7 +79,7 @@ namespace Gacha_Plus_Launcher
 
         private void SettingsForm_Load(object sender = null, EventArgs e = null)
         {
-            string pth = Application.LocalUserAppDataPath;
+            string pth = OtherFunctions.LocalUserAppDataPathWithoutVersion();
             if (File.Exists(GachaPlusForm.pathPath))
                 pth = File.ReadAllText(GachaPlusForm.pathPath);
 
@@ -90,7 +90,7 @@ namespace Gacha_Plus_Launcher
 
         private void customdiropem_button_Click(object sender, EventArgs e)
         {
-            string pth = Application.LocalUserAppDataPath;
+            string pth = OtherFunctions.LocalUserAppDataPathWithoutVersion();
             if (File.Exists(GachaPlusForm.pathPath))
                 pth = File.ReadAllText(GachaPlusForm.pathPath);
 

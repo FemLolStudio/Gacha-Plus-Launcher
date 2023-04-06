@@ -10,7 +10,7 @@ namespace Gacha_Plus_Launcher
 {
     public static class BackupManager
     {
-        public static string backupDirectory = Path.Combine(Application.LocalUserAppDataPath, "backup");
+        public static string backupDirectory = Path.Combine(OtherFunctions.LocalUserAppDataPathWithoutVersion(), "backup");
         private static string appDataRoaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         private static string gameSavePath = Path.Combine(appDataRoaming, "com.lunime.gachaclub", "Local Store", "#SharedObjects", "gacha_plus.swf");
 

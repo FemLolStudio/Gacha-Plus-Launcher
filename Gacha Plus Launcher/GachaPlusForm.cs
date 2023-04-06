@@ -25,7 +25,7 @@ namespace Gacha_Plus_Launcher
         {
             get
             {
-                string pth = Application.LocalUserAppDataPath;
+                string pth = OtherFunctions.LocalUserAppDataPathWithoutVersion();
                 if(File.Exists(pathPath))
                     pth = File.ReadAllText(pathPath);
 
@@ -36,7 +36,7 @@ namespace Gacha_Plus_Launcher
         {
             get
             {
-                string pth = Application.LocalUserAppDataPath;
+                string pth = OtherFunctions.LocalUserAppDataPathWithoutVersion();
                 if (File.Exists(pathPath))
                     pth = File.ReadAllText(pathPath);
 
@@ -44,9 +44,9 @@ namespace Gacha_Plus_Launcher
             }
         }
 
-        private string VersionPath = Path.Combine(@"\\?\" + Application.LocalUserAppDataPath, "version.txt");
-        private string fullscreenPath = Path.Combine(@"\\?\" + Application.LocalUserAppDataPath, "fullscreen.txt");
-        public static string pathPath = Path.Combine(@"\\?\" + Application.LocalUserAppDataPath, "path.txt");
+        private string VersionPath = Path.Combine(@"\\?\" + OtherFunctions.LocalUserAppDataPathWithoutVersion(), "version.txt");
+        private string fullscreenPath = Path.Combine(@"\\?\" + OtherFunctions.LocalUserAppDataPathWithoutVersion(), "fullscreen.txt");
+        public static string pathPath = Path.Combine(@"\\?\" + OtherFunctions.LocalUserAppDataPathWithoutVersion(), "path.txt");
 
         private string LatestChecksum = "-";
         private string LatestVersion = "0.0.0";

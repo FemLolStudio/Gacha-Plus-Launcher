@@ -104,5 +104,11 @@ namespace Gacha_Plus_Launcher
                 }
             }
         }
+
+        public static string LocalUserAppDataPathWithoutVersion()
+        {
+            var dir = Directory.GetParent(Application.LocalUserAppDataPath);
+            return dir.FullName;
+        }
     }
 }
