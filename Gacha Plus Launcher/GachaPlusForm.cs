@@ -180,12 +180,14 @@ namespace Gacha_Plus_Launcher
                 await Task.Run(() =>
                 {
                     Process process = Process.Start(Path.Combine(ExtractedDirName, ExeName));
+                    process.WaitForInputIdle(); // wait for process to be fully loaded
 
                     if (fullscreen_checkBox.Checked)
                     {
                         // set window to full screen
-                        process.WaitForInputIdle(); // wait for process to be fully loaded
+                        Task.Delay(750).Wait();
                         IntPtr handle = process.MainWindowHandle; // get the window handle
+                        NativeMethods.SetForegroundWindow(process.MainWindowHandle);
                         NativeMethods.ShowWindow(handle, NativeMethods.SW_MAXIMIZE); // maximize the window
                         NativeMethods.SetWindowLong(handle, NativeMethods.GWL_STYLE, NativeMethods.WS_VISIBLE | NativeMethods.WS_POPUP); // set the window style
                         NativeMethods.SetWindowPos(handle, IntPtr.Zero, 0, 0, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, NativeMethods.SWP_NOZORDER); // set the window position
@@ -193,8 +195,9 @@ namespace Gacha_Plus_Launcher
                     else
                     {
                         // maximize the window
-                        process.WaitForInputIdle(); // wait for process to be fully loaded
+                        Task.Delay(750).Wait();
                         IntPtr handle = process.MainWindowHandle; // get the window handle
+                        NativeMethods.SetForegroundWindow(process.MainWindowHandle);
                         NativeMethods.ShowWindow(handle, NativeMethods.SW_MAXIMIZE); // maximize the window
                     }
                 });
