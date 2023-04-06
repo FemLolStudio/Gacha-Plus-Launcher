@@ -19,7 +19,7 @@ To use Gacha Plus Launcher, you'll need:
 
 You can download Gacha Plus Launcher in .exe format from the link below.
 
-https://github.com/FemLol2003/Gacha-Plus-Launcher/releases/tag/Release
+https://github.com/FemLol2003/Gacha-Plus-Launcher/releases/
 
 ## Getting Started
 
