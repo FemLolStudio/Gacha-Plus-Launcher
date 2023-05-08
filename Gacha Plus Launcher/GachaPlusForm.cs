@@ -104,14 +104,14 @@ namespace Gacha_Plus_Launcher
                 else
                 {
                     // Launch the app
-                    LaunchApp();
+                    await LaunchApp();
                 }
             }
             catch (Exception ex)
             {
                 OtherFunctions.CustomMessageBoxShow($"Failed to check for updates: {ex.Message}");
 
-                LaunchApp();
+                await LaunchApp();
             }
         }
         /// <summary>
@@ -156,7 +156,7 @@ namespace Gacha_Plus_Launcher
                 File.WriteAllText(VersionPath, LatestVersion, Encoding.UTF8);
 
                 // Launch the app
-                LaunchApp();
+                await LaunchApp();
             }
             catch (Exception ex)
             {

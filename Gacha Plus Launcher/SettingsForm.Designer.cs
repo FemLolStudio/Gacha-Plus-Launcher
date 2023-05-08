@@ -34,12 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Ok_button = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.customdiropem_button = new System.Windows.Forms.Button();
             this.originalpath_button = new System.Windows.Forms.Button();
             this.custompath_button = new System.Windows.Forms.Button();
             this.path_label = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.backupdir_button = new System.Windows.Forms.Button();
-            this.customdiropem_button = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -73,9 +73,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(254, 13);
+            this.label1.Size = new System.Drawing.Size(238, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "If somewhy the game not starting up try this function.";
+            this.label1.Text = "If the game isn\'t starting up try using this function.";
             // 
             // label2
             // 
@@ -109,6 +109,17 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datas";
+            // 
+            // customdiropem_button
+            // 
+            this.customdiropem_button.AutoSize = true;
+            this.customdiropem_button.Location = new System.Drawing.Point(55, 85);
+            this.customdiropem_button.Name = "customdiropem_button";
+            this.customdiropem_button.Size = new System.Drawing.Size(108, 23);
+            this.customdiropem_button.TabIndex = 4;
+            this.customdiropem_button.Text = "Open Directory";
+            this.customdiropem_button.UseVisualStyleBackColor = true;
+            this.customdiropem_button.Click += new System.EventHandler(this.customdiropem_button_Click);
             // 
             // originalpath_button
             // 
@@ -163,17 +174,6 @@
             this.backupdir_button.Text = "Open Backup Directory";
             this.backupdir_button.UseVisualStyleBackColor = true;
             this.backupdir_button.Click += new System.EventHandler(this.backupdir_button_Click);
-            // 
-            // customdiropem_button
-            // 
-            this.customdiropem_button.AutoSize = true;
-            this.customdiropem_button.Location = new System.Drawing.Point(55, 85);
-            this.customdiropem_button.Name = "customdiropem_button";
-            this.customdiropem_button.Size = new System.Drawing.Size(108, 23);
-            this.customdiropem_button.TabIndex = 4;
-            this.customdiropem_button.Text = "Open Directory";
-            this.customdiropem_button.UseVisualStyleBackColor = true;
-            this.customdiropem_button.Click += new System.EventHandler(this.customdiropem_button_Click);
             // 
             // SettingsForm
             // 
