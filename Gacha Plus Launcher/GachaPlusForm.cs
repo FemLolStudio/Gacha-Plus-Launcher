@@ -183,8 +183,10 @@ namespace Gacha_Plus_Launcher
                     process.WaitForInputIdle(); // wait for process to be fully loaded
                     Task.Delay(3000).Wait();
 
+                    if (process.HasExited)
+                        throw new Exception("Gacha Plus (or ither Gacha Club mod) is already running!");
 
-                    if (fullscreen_checkBox.Checked)
+                    else if (fullscreen_checkBox.Checked)
                     {
                         // set window to full screen
                         IntPtr handle = process.MainWindowHandle; // get the window handle
@@ -209,7 +211,8 @@ namespace Gacha_Plus_Launcher
                 OtherFunctions.CustomMessageBoxShow($"Failed to start: {ex.Message}");
 
                 // if something wrong its remove the wrong files and the launcher will reinstall the game on the next startup
-                OtherFunctions.DeleteDirectory(ExtractedDirName); 
+                if(!ex.Message.EndsWith("is already running!"))
+                    OtherFunctions.DeleteDirectory(ExtractedDirName); 
 
                 DownloadingEndUI();
             }
