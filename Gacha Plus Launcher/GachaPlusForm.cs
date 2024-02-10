@@ -16,7 +16,7 @@ namespace Gacha_Plus_Launcher
     public partial class GachaPlusForm : Form
     {
         #region Variables
-        private const string LatestVersionDatas = "https://gacha-plus.com/GPscripts/latestversion_and_checksum.php"; //this can be a path for a txt too
+        private const string LatestVersionDatas = "https://gachaplus.femlol.hu/GPscripts/latestversion_and_checksum.php"; //this can be a path for a txt too
         
         private const string ExeName = @"gacha_plus.app\Gacha Plus.exe";
 
