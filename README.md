@@ -32,4 +32,4 @@ To get started with Gacha Plus Launcher, simply download and install the launche
 ## License
 
 Gacha Plus Launcher is licensed under the
-[MIT License](LICENSE). You're free to use, modify, and distribute the code as you see fit.
+[MIT License](LICENSE.txt). You're free to use, modify, and distribute the code as you see fit.
